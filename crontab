@@ -1,0 +1,30 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+ * * * * * 	root	  bash /root/codigos/bacula.sh backup >> /root/bacula.log 2>&1
+# * * * * * 	root	  bash /etc/cron.minute/* 2>&1 /dev/null
+ 0 0 * * *	root	   /root/backup.sh 2>&1 /dev/null
+
+# 0-30 -> do 0 ate 30
+# 0,30 -> no 0 e no 30
+# */2 -> de 2 em 2
+
+#         m h d m w
+#HOURLY:  0 * * * * 
+#DAILY:   0 0 * * *
+#WEEKLY:  0 0 * * 0
+#MONTHLY: 0 0 1 * *
+#YEARLY:  0 0 1 1 *
+
+
